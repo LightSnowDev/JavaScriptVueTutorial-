@@ -41,6 +41,7 @@
         </v-card>
       </v-dialog>
       <v-container fluid>
+        <v-btn color="green" @click="addUser()">User hinzufügen</v-btn>
         <v-card v-for="(user,i) in users" :key="user.id" style="margin:24px;">
           <v-card-title>User: {{user.name}}</v-card-title>
           <v-card-text>
@@ -85,6 +86,14 @@ export default {
         .then(stream => stream.json())
         .then(data => (this.users = data))
         .catch(error => console.error(error));
+    },
+    addUser() {
+      var newUser = {
+        name: "newUser",
+        id: this.users.length + 1,
+        phone: Math.floor(Math.random() * 10000)
+      };
+      this.users.unshift(newUser);
     }
   }
 };
