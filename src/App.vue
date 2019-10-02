@@ -24,7 +24,12 @@
     </v-navigation-drawer>
 
     <v-content>
-      <v-container fluid>hi</v-container>
+      <v-container fluid>
+        <v-card>
+          <v-card-title>Title</v-card-title>
+          <v-card-text>Text</v-card-text>
+        </v-card>
+      </v-container>
     </v-content>
   </v-app>
 </template>
