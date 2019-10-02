@@ -48,6 +48,9 @@
             id: {{user.id}}
             <br />
             phone: {{user.phone}}
+            <br/>
+            <br/>
+            <v-text-field outlined v-model="user.name" label="Name"/>
           </v-card-text>
           <v-card-actions>
             <v-spacer />
