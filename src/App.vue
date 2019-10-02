@@ -25,7 +25,7 @@
 
     <v-content>
       <v-container fluid>
-        <v-card v-for="user in users" :key="user.id">
+        <v-card v-for="user in users" :key="user.id" style="margin:24px;">
           <v-card-title>User: {{user.name}}</v-card-title>
           <v-card-text>
             id: {{user.id}}
@@ -67,7 +67,7 @@ export default {
         }
       },
       {
-        id: 1,
+        id: 2,
         name: "Leanne Graham",
         username: "Bret",
         email: "Sincere@april.biz",
