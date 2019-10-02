@@ -25,13 +25,17 @@
 
     <v-content>
       <v-container fluid>
-        <v-card v-for="user in users" :key="user.id" style="margin:24px;">
+        <v-card v-for="(user,i) in users" :key="user.id" style="margin:24px;">
           <v-card-title>User: {{user.name}}</v-card-title>
           <v-card-text>
             id: {{user.id}}
             <br />
             phone: {{user.phone}}
           </v-card-text>
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn color="green" @click="users.splice(i,1)">User löschen</v-btn>
+          </v-card-actions>
         </v-card>
       </v-container>
     </v-content>
