@@ -24,6 +24,22 @@
     </v-navigation-drawer>
 
     <v-content>
+      <v-dialog v-model="dialog" width="500">
+        <template v-slot:activator="{ on }"></template>
+
+        <v-card>
+          <v-card-title>User Daten</v-card-title>
+
+          <v-card-text>
+            <pre>{{dialogUser}}</pre>
+          </v-card-text>
+
+          <v-card-actions>
+            <div class="flex-grow-1"></div>
+            <v-btn color="primary" text @click="dialog = false">I accept</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-container fluid>
         <v-card v-for="(user,i) in users" :key="user.id" style="margin:24px;">
           <v-card-title>User: {{user.name}}</v-card-title>
@@ -33,7 +49,12 @@
             phone: {{user.phone}}
           </v-card-text>
           <v-card-actions>
-            <v-spacer/>
+            <v-spacer />
+            <v-btn
+              color="red lighten-2"
+              dark
+              @click="dialog = true; dialogUser = user;"
+            >Click Me To Show Everything</v-btn>
             <v-btn color="green" @click="users.splice(i,1)">User löschen</v-btn>
           </v-card-actions>
         </v-card>
@@ -49,6 +70,8 @@ export default {
     this.loadUsers();
   },
   data: () => ({
+    dialog: false,
+    dialogUser: {},
     users: [],
     items: [
       { title: "Dashboard", icon: "mdi-view-dashboard" },
